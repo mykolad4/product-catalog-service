@@ -1,0 +1,32 @@
+### Create new product
+POST http://localhost:8080/product
+Content-Type: application/json
+
+{
+  "id": "test-product-1",
+  "title": "test product 1",
+  "desc": "test product 1",
+  "imagePath": "fs://image-path",
+  "unitPrice": 77.0
+}
+
+### Get product by id
+GET http://localhost:8080/product/test-product-1
+Accept: application/json
+
+### Update product
+PUT http://localhost:8080/product
+Content-Type: application/json
+
+{
+  "id": "test-product-1",
+  "title": "test product 1 updated",
+  "desc": "test product 1 updated",
+  "imagePath": "fs://image-path",
+  "unitPrice": 2.0
+}
+
+### Ddelete product by id
+DELETE http://localhost:8080/product/test-product-1
+
+###
