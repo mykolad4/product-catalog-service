@@ -2,15 +2,19 @@ package com.demchenko.microcervice.productcatalogservice.controller;
 
 import com.demchenko.microcervice.productcatalogservice.model.Product;
 import com.demchenko.microcervice.productcatalogservice.service.ProductCatalogService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 public class ProductCatalogController {
+
     private final ProductCatalogService productCatalog;
+
+    public ProductCatalogController(@Qualifier("mongoProductCatalogService") ProductCatalogService productCatalog) {
+        this.productCatalog = productCatalog;
+    }
 
     @PostMapping("/product")
     public String addProduct(@RequestBody Product product) {
